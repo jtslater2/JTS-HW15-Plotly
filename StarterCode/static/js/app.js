@@ -4,8 +4,16 @@ Feel free to disregard and create your own code */
 
 // Define a function that will create metadata for given sample
 function buildMetadata(sample) {
-
+    
     // Read the json data
+    //d3.json(url).then(function(data) {
+    //    console.log(data);
+    //  });
+    d3.json(././samples.json).then(function(data) {
+        console.log(data);
+      });
+      
+      
 
         // Parse and filter the data to get the sample's metadata
 
