@@ -8,19 +8,36 @@ Feel free to disregard and create your own code
 */
 
 // testing area
-d3.json("././samples.json").then(function(data) {
-    console.log(data);
-    var samp_md = data.metadata;
-    console.log("sample metadata")
-    console.log(samp_md);
-
-    var samp_md2 = samp_md.filter(pick => pick.id === Selection);
-    console.log("pick at positon 0")
-    console.log(samp_md2[0]);
+// // d3.json("././samples.json").then(function(data) {
+//     console.log("data from json:");
+//     console.log(data);
+//     var parse_md = data.metadata;
+//     console.log("sample metadata:")
+//     console.log(samp_md);
 
 
+//     var samp_md2 = samp_md.filter(subject => subject.id === Selection);
+//     console.log("pick at positon 0")
+//     console.log(pick[0]);
+// });
 
-});
+
+// d3.json("././samples.json").then(function(data) {
+
+//         //
+//         var samples = data.samples;
+//         console.log(samples);
+//         // Parse and filter the data to get the sample's OTU data
+//         // Pay attention to what data is required for each chart
+
+//         //var pers = samples.filter(subject => subject.id === sample)[0];
+//         //console.log(person)
+//         // Create bar chart in correct location
+// });
+
+
+
+
 
 // Define a function that will create metadata for given sample
 function buildMetadata(sample) {
@@ -30,7 +47,7 @@ function buildMetadata(sample) {
     //    console.log(data);
     //  });
     d3.json("././samples.json").then(function(data) {
-        //console.log(data.names);
+        console.log(data.names);
       });
       
     // Parse and filter the data to get the sample's metadata
@@ -43,21 +60,34 @@ function buildMetadata(sample) {
 
     // Specify the location of the metadata and update it
     
-}
+    };
 
 // Define a function that will create charts for given sample
 function buildCharts(sample) {
 
     // Read the json data
+    d3.json("././samples.json").then(function(data) {
 
+        //
+        var samples = data.samples;
+        console.log(samples);
         // Parse and filter the data to get the sample's OTU data
         // Pay attention to what data is required for each chart
 
+        //var pers = samples.filter(subject => subject.id === sample)[0];
+        //console.log(person)
         // Create bar chart in correct location
 
-        // Create bubble chart in correct location
+
+
+
+        //Create bubble chart in correct location
+
+  
     
-}
+    });
+
+};
 
 // Define function that will run on page load
 function init() {
