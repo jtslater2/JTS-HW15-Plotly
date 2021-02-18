@@ -1,6 +1,19 @@
 /* The following is an example on how you might structure your code.
 This is not the only way to complete this assignment.
-Feel free to disregard and create your own code */
+Feel free to disregard and create your own code 
+
+
+
+
+*/
+
+// testing area
+d3.json("././samples.json").then(function(data) {
+    console.log(data);
+    var samp_md = data.metadata;
+    console.log(samp_md);
+
+});
 
 // Define a function that will create metadata for given sample
 function buildMetadata(sample) {
@@ -9,16 +22,19 @@ function buildMetadata(sample) {
     //d3.json(url).then(function(data) {
     //    console.log(data);
     //  });
-    d3.json(././samples.json).then(function(data) {
-        console.log(data);
+    d3.json("././samples.json").then(function(data) {
+        //console.log(data.names);
       });
       
-      
+    // Parse and filter the data to get the sample's metadata
+    var samp_md = data.metadata;
 
-        // Parse and filter the data to get the sample's metadata
+    //let bigCities = cities.filter(city => city.population > 3000000);
+    //console.log(bigCities);
+    var 
 
-        // Specify the location of the metadata and update it
-
+    // Specify the location of the metadata and update it
+    
 }
 
 // Define a function that will create charts for given sample
@@ -58,4 +74,3 @@ function optionChanged(newSample){
 
 // Initialize dashboard on page load
 init();
-
