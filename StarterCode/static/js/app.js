@@ -11,7 +11,14 @@ Feel free to disregard and create your own code
 d3.json("././samples.json").then(function(data) {
     console.log(data);
     var samp_md = data.metadata;
+    console.log("sample metadata")
     console.log(samp_md);
+
+    var samp_md2 = samp_md.filter(pick => pick.id === Selection);
+    console.log("pick at positon 0")
+    console.log(samp_md2[0]);
+
+
 
 });
 
@@ -31,7 +38,8 @@ function buildMetadata(sample) {
 
     //let bigCities = cities.filter(city => city.population > 3000000);
     //console.log(bigCities);
-    var 
+    var samp_md2 = samp_md.filter(pick => pick.id == Selection);
+    console.log(pick[0]);
 
     // Specify the location of the metadata and update it
     
