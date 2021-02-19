@@ -110,7 +110,7 @@ function init() {
 // // Read the json data
     selection = 940
     d3.json("././samples.json").then(function(data) {
-
+        // selection = 940   
         //     //
         var samp_md2 = data.samples;
         console.log("samp_md2 in chart func");
@@ -118,13 +118,14 @@ function init() {
         //     // Parse and filter the data to get the sample's OTU data
         //     // Pay attention to what data is required for each chart
 
-        var filt_md2 = samp_md2.filter(pick => pick.id == selection);
+        var filt_md2 = samp_md2.filter(pick => pick.id == selection)[0];
         console.log("filt_md2 in chart func");
         console.log(filt_md2);
 
 
         var filt_id = filt_md2.otu_ids;
-        var bar_valu = filt_id.slice(0,10);
+        console.log(filt_id);
+        var bar_valu = filt_id.slice(0,10).reverse();
         console.log("id values");
         console.log(bar_valu);
 

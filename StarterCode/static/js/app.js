@@ -40,7 +40,8 @@ Feel free to disregard and create your own code
 
 // Define a function that will create metadata for given sample
 function buildMetadata(selection) {
-    
+    console.log("selection value is");
+    console.log(selection);
     // Read the json data
     d3.json("././samples.json").then(function(data) {
               
@@ -78,31 +79,32 @@ function buildCharts(selection) {
     //     // Parse and filter the data to get the sample's OTU data
     //     // Pay attention to what data is required for each chart
 
-    var filt_md2 = parseData.filter(pick => pick.id == selection);
+    var filt_md2 = samp_md2.filter(pick => pick.id == selection)[0];
     console.log("filt_md2 in chart func");
     console.log(filt_md2);
 
 
-    var filt_id = filt_md2.otu_ids:
+    var filt_id = filt_md2.otu_ids;
     var bar_valu = filt_id.slice(0,10);
     console.log("id values");
     console.log(bar_valu);
 
+    
 
-    //     var pardata = samples.filter(subject => subject.id === sample)[0];
-    //     //console.log(person)
+        // var pardata = samples.filter(subject => subject.id === sample)[0];
+        //console.log(person)
 
-    //     // hardcode chart to start
-    //     // Create bar chart in correct location
+        // hardcode chart to start
+        // Create bar chart in correct location
         
 
 
 
-    //     //Create bubble chart in correct location
+        //Create bubble chart in correct location
 
   
     
-    // });
+    });
 
 
     
