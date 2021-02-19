@@ -66,7 +66,7 @@ function buildMetadata(selection) {
 };
 // 
 // Define a function that will create charts for given sample
-function buildCharts(sample) {
+function buildCharts(selection) {
 
     // Read the json data
     d3.json("././samples.json").then(function(data) {
@@ -94,26 +94,33 @@ function buildCharts(sample) {
 
 // Define function that will run on page load
 function init() {
-    // test buildMetadata with 941
-    // buildMetadata(941)
-
+    // test buildMetadata with hardcode
+    // buildMetadata(947)
+    
     // Read json data
+    d3.json("././samples.json").then((seldata) => {
 
         // Parse and filter data to get sample names
+        var parse_md = seldata.names;
+        console.log("parse_md in init function")
+        console.log(parse_md[0]);
 
         // Add dropdown option for each sample
+        
 
-    // Use first sample to build metadata and initial plots
+    // Use first sample to build metadata and initial plots - id 941
+    buildMetadata(947);
 
-}
+    // buildCharts(941);
+});
 
 function optionChanged(newSample){
 
     // Update metadata with newly selected sample
 
     // Update charts with newly selected sample
-
-}
+    }
+};
 
 // Initialize dashboard on page load
 init();
