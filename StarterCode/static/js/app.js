@@ -64,7 +64,7 @@ function buildMetadata(selection) {
         });
     });
 };
-
+// 
 // Define a function that will create charts for given sample
 function buildCharts(sample) {
 
