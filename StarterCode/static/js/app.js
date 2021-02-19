@@ -119,8 +119,28 @@ function buildCharts(selection) {
 
         //Create bubble chart in correct location
 
-  
-    
+
+
+        
+
+    trace2 = {
+        mode:"markers",
+        x: filt_valu,
+        y: bar_id_label,
+        text: filt_id,
+        marker: {
+                size: bar_id_label,
+                color: filt_id,
+        },
+        };
+    data2 = [trace2];
+
+    layout2 = {title: "Bubble Chart",
+           xaxis:{title: "IDs"},
+           yaxis:{title: "Samples"}
+        };
+    Plotly.newPlot("bubble", data2, layout2);
+
     });
 
 
