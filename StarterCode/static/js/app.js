@@ -51,7 +51,7 @@ function buildMetadata(selection) {
 
         //let bigCities = cities.filter(city => city.population > 3000000);
         //console.log(bigCities);
-        var filt_md = samp_md.filter(pick => pick.id === selection);
+        var filt_md = samp_md.filter(pick => pick.id == selection);
         console.log("filtered[0] position in metadata function")
         console.log(filt_md[0]);
 
@@ -79,8 +79,10 @@ function buildCharts(selection) {
 
         var pardata = samples.filter(subject => subject.id === sample)[0];
         //console.log(person)
-        // Create bar chart in correct location
 
+        // hardcode chart to start
+        // Create bar chart in correct location
+        
 
 
 
@@ -116,17 +118,20 @@ function init() {
         
 
     // Use first sample to build metadata and initial plots - id 941
-    buildMetadata(947);
+    buildMetadata(940);
 
     // buildCharts(941);
 });
 
-function optionChanged(newSample){
+};
+
+function optionChanged(newseldata){
 
     // Update metadata with newly selected sample
+    buildMetadata(newseldata);
 
     // Update charts with newly selected sample
-    }
+    // buildCharts(newseldata);
 };
 
 // Initialize dashboard on page load
