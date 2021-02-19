@@ -103,9 +103,16 @@ function init() {
         // Parse and filter data to get sample names
         var parse_md = seldata.names;
         console.log("parse_md in init function")
-        console.log(parse_md[0]);
+        console.log(parse_md);
 
         // Add dropdown option for each sample
+        var ddmenu = d3.select('#selDataset');
+        
+        parse_md.forEach((name) => {
+            ddmenu.append("option").property("value", name).text(name);
+        })
+            //parse_md
+
         
 
     // Use first sample to build metadata and initial plots - id 941
