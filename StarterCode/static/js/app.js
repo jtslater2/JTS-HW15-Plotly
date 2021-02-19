@@ -77,7 +77,16 @@ function buildCharts(selection) {
     console.log(samp_md2);
     //     // Parse and filter the data to get the sample's OTU data
     //     // Pay attention to what data is required for each chart
-    var filt_md2 = parseData.
+
+    var filt_md2 = parseData.filter(pick => pick.id == selection);
+    console.log("filt_md2 in chart func");
+    console.log(filt_md2);
+
+
+    var filt_id = filt_md2.otu_ids:
+    var bar_valu = filt_id.slice(0,10);
+    console.log("id values");
+    console.log(bar_valu);
 
 
     //     var pardata = samples.filter(subject => subject.id === sample)[0];
@@ -100,7 +109,7 @@ function buildCharts(selection) {
 
 
 
-
+    
 
 
 };
