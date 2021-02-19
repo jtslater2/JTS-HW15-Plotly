@@ -68,29 +68,40 @@ function buildMetadata(selection) {
 // Define a function that will create charts for given sample
 function buildCharts(selection) {
 
-    // Read the json data
+    // // Read the json data
     d3.json("././samples.json").then(function(data) {
 
-        //
-        var samples = data.samples;
-        console.log(samples);
-        // Parse and filter the data to get the sample's OTU data
-        // Pay attention to what data is required for each chart
+    //     //
+    var samp_md2 = data.samples;
+    console.log("samp_md2 in chart func");
+    console.log(samp_md2);
+    //     // Parse and filter the data to get the sample's OTU data
+    //     // Pay attention to what data is required for each chart
+    var filt_md2 = parseData.
 
-        var pardata = samples.filter(subject => subject.id === sample)[0];
-        //console.log(person)
 
-        // hardcode chart to start
-        // Create bar chart in correct location
+    //     var pardata = samples.filter(subject => subject.id === sample)[0];
+    //     //console.log(person)
+
+    //     // hardcode chart to start
+    //     // Create bar chart in correct location
         
 
 
 
-        //Create bubble chart in correct location
+    //     //Create bubble chart in correct location
 
   
     
-    });
+    // });
+
+
+    
+
+
+
+
+
 
 };
 
@@ -120,7 +131,7 @@ function init() {
     // Use first sample to build metadata and initial plots - id 941
     buildMetadata(940);
 
-    // buildCharts(941);
+    buildCharts(941);
 });
 
 };
@@ -131,7 +142,7 @@ function optionChanged(newseldata){
     buildMetadata(newseldata);
 
     // Update charts with newly selected sample
-    // buildCharts(newseldata);
+    buildCharts(newseldata);
 };
 
 // Initialize dashboard on page load
