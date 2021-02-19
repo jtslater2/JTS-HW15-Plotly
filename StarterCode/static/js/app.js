@@ -94,6 +94,8 @@ function buildCharts(sample) {
 
 // Define function that will run on page load
 function init() {
+    // test buildMetadata with 941
+    // buildMetadata(941)
 
     // Read json data
 

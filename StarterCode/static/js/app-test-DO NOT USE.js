@@ -39,10 +39,10 @@ Feel free to disregard and create your own code
 
 
 // Define a function that will create metadata for given sample
-// function buildMetadata(selection) {
+function buildMetadata(selection) {
     
     // Read the json data
-    var selection = 941
+    // var selection = 941
     d3.json("././samples.json").then(function(data) {
               
         // Parse and filter the data to get the sample's metadata
@@ -64,7 +64,9 @@ Feel free to disregard and create your own code
                   
         });
     });
-// };
+};
+
+// buildMetadata(941)
 
 // Define a function that will create charts for given sample
 function buildCharts(sample) {
@@ -96,6 +98,8 @@ function buildCharts(sample) {
 // Define function that will run on page load
 function init() {
 
+    buildMetadata(941)
+
     // Read json data
 
         // Parse and filter data to get sample names
@@ -115,4 +119,5 @@ function optionChanged(newSample){
 }
 
 // Initialize dashboard on page load
+
 init();
