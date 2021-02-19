@@ -39,9 +39,10 @@ Feel free to disregard and create your own code
 
 
 // Define a function that will create metadata for given sample
-function buildMetadata(selection) {
+// function buildMetadata(selection) {
     
     // Read the json data
+    var selection = 941
     d3.json("././samples.json").then(function(data) {
               
         // Parse and filter the data to get the sample's metadata
@@ -63,7 +64,7 @@ function buildMetadata(selection) {
                   
         });
     });
-};
+// };
 
 // Define a function that will create charts for given sample
 function buildCharts(sample) {
