@@ -85,19 +85,36 @@ function buildCharts(selection) {
 
 
     var filt_id = filt_md2.otu_ids;
-    var bar_valu = filt_id.slice(0,10);
-    console.log("id values");
-    console.log(bar_valu);
-
+    console.log(filt_id);
     
+    var bar_id_label = filt_id.slice(0,10);
+    console.log(bar_id_label);
+
+    var filt_valu = filt_md2.sample_values;
+    console.log(filt_valu);
+
+    var filt_chart = filt_valu.slice(0,10);
+    console.log(filt_chart);
 
         // var pardata = samples.filter(subject => subject.id === sample)[0];
         //console.log(person)
 
         // hardcode chart to start
         // Create bar chart in correct location
-        
-
+    trace1 = {
+                type:"bar",
+                x: filt_valu,
+                y: bar_id_label,
+                text: filt_id,
+                orientation: "h",
+            };
+    data1 = [trace1];
+    
+    layout1 = {title: "Belly Button Data",
+               xaxis:{title: "Samples"},
+               yaxis:{title: "IDs"}
+            };
+    Plotly.newPlot("bar", data1, layout1);
 
 
         //Create bubble chart in correct location
@@ -142,7 +159,7 @@ function init() {
     // Use first sample to build metadata and initial plots - id 941
     buildMetadata(940);
 
-    buildCharts(941);
+    buildCharts(940);
 });
 
 };
