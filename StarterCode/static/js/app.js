@@ -77,28 +77,47 @@ function buildCharts(selection) {
     d3.json("././samples.json").then(function(data) {
 
     //     //
-    var samp_md2 = data.samples;
-    console.log("samp_md2 in chart func");
-    console.log(samp_md2);
+    var samples_data = data.samples;
+    console.log("samples_data in chart func");
+    console.log(samples_data);
     //     // Parse and filter the data to get the sample's OTU data
     //     // Pay attention to what data is required for each chart
 
-    var filt_md2 = samp_md2.filter(pick => pick.id == selection)[0];
-    console.log("filt_md2 in chart func");
-    console.log(filt_md2);
 
 
-    var filt_id = filt_md2.otu_ids;
-    console.log(filt_id);
+    var filter_data = samples_data.filter(pick => pick.id == selection)[0];
+    console.log("filter_data in chart func");
+    console.log(filter_data);
+
+
+
+    var xbar_values = filter_data.sample_values;
+    console.log(xbar_values);
+   
+    var xbar_value10 = xbar_values.slice(0,10)
+    console.log("xbar 10 values")
+    console.log(xbar_value10);
+
+    var ybar_values = filter_data.otu_ids;
+    console.log(ybar_values);
+    var ybar_value10 = ybar_values.slice(0,10)
     
-    var bar_id_label = filt_id.slice(0,10);
-    console.log(bar_id_label);
+    var ybar_label10 = [];
+    ybar_values.forEach((suffix) =>{
+        ybar_label10.push("OTU " + suffix)
+    });
+    console.log("ybar_labels 10")
+    console.log(ybar_label10)
 
-    var filt_valu = filt_md2.sample_values;
-    console.log(filt_valu);
+    
+    // var bar_id_label = filt_id.slice(0,10);
+    // console.log(bar_id_label);
 
-    var filt_chart = filt_valu.slice(0,10);
-    console.log(filt_chart);
+    // var xbar_values = filter_data.sample_values;
+    // console.log(xbar_values);
+
+    // var filt_chart = filt_valu.slice(0,10);
+    // console.log(filt_chart);
 
         // var pardata = samples.filter(subject => subject.id === sample)[0];
         //console.log(person)
@@ -107,9 +126,9 @@ function buildCharts(selection) {
         // Create bar chart in correct location
     trace1 = {
                 type:"bar",
-                x: filt_valu,
-                y: bar_id_label,
-                text: filt_id,
+                x: xbar_value10,
+                y: ybar_value10,
+                text: ybar_label10,
                 orientation: "h",
             };
     data1 = [trace1];
@@ -127,23 +146,23 @@ function buildCharts(selection) {
 
         
 
-    trace2 = {
-        mode:"markers",
-        x: filt_valu,
-        y: bar_id_label,
-        text: filt_id,
-        marker: {
-                size: bar_id_label,
-                color: filt_id,
-        },
-        };
-    data2 = [trace2];
+    // trace2 = {
+    //     mode:"markers",
+    //     x: filt_valu,
+    //     y: bar_id_label,
+    //     text: filt_id,
+    //     marker: {
+    //             size: bar_id_label,
+    //             color: filt_id,
+    //     },
+    //     };
+    // data2 = [trace2];
 
-    layout2 = {title: "Bubble Chart",
-           xaxis:{title: "IDs"},
-           yaxis:{title: "Samples"}
-        };
-    Plotly.newPlot("bubble", data2, layout2);
+    // layout2 = {title: "Bubble Chart",
+    //        xaxis:{title: "IDs"},
+    //        yaxis:{title: "Samples"}
+    //     };
+    // Plotly.newPlot("bubble", data2, layout2);
 
     });
 
