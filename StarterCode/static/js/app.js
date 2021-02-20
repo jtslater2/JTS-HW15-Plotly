@@ -3,36 +3,6 @@ This is not the only way to complete this assignment.
 Feel free to disregard and create your own code 
 */
 
-// testing area
-
-
-
-
-
-
-
-
-// });
-// 
-// 
-// 
-// 
-//  d3.json("././samples.json").then(function(data) {
-
-         //
-        //  var samples = data.samples;
-        //  console.log(samples);
-        //  // Parse and filter the data to get the sample's OTU data
-         // Pay attention to what data is required for each chart
-
-         //var pers = samples.filter(subject => subject.id === sample)[0];
-         //console.log(person)
-         // Create bar chart in correct location
- 
-
-
-// 
-
 
 // Define a function that will create metadata for given sample
 function buildMetadata(selection) {
@@ -59,23 +29,21 @@ function buildMetadata(selection) {
         });
         console.log("metadata fill")
         console.log(metadata)
-        
                   
     });
 };
-// 
 // Define a function that will create charts for given sample
 function buildCharts(selection) {
 
-    // // Read the json data
+    // Read the json data
     d3.json("././samples.json").then(function(data) {
 
-    //     //
     var samples_data = data.samples;
     console.log("samples_data in chart func");
     console.log(samples_data);
-    //     // Parse and filter the data to get the sample's OTU data
-    //     // Pay attention to what data is required for each chart
+
+     // Parse and filter the data to get the sample's OTU data
+     // Pay attention to what data is required for each chart
 
 
 
@@ -83,16 +51,12 @@ function buildCharts(selection) {
     console.log("filter_data in chart func");
     console.log(filter_data);
 
-    
-
-
     var xbar_values = filter_data.sample_values;
     console.log(xbar_values);
    
     var xbar_value10 = xbar_values.slice(0,10).reverse()
-    console.log("ybar 10 values")
+    console.log("xbar 10 values")
     console.log(xbar_value10);
-
 
 
     var ybar_values = filter_data.otu_ids;
@@ -110,20 +74,7 @@ function buildCharts(selection) {
     var hovertext = filter_data.otu_labels;
     var barhovertext = hovertext.slice(0,10).reverse();
     
-    // var bar_id_label = filt_id.slice(0,10);
-    // console.log(bar_id_label);
-
-    // var xbar_values = filter_data.sample_values;
-    // console.log(xbar_values);
-
-    // var filt_chart = filt_valu.slice(0,10);
-    // console.log(filt_chart);
-
-        // var pardata = samples.filter(subject => subject.id === sample)[0];
-        //console.log(person)
-
-        // hardcode chart to start
-        // Create bar chart in correct location
+    // Create bar chart in correct location
     trace1 = {
                 type:"bar",
                 x: xbar_value10,
@@ -134,18 +85,13 @@ function buildCharts(selection) {
     data1 = [trace1];
     
     layout1 = {title: "Belly Button Data",
-               xaxis:{title: "Samples"},
-               yaxis:{title: "IDs"}
+               xaxis:{title: "Sample Values"},
+            // yaxis:{title: "IDs"}
             };
     Plotly.newPlot("bar", data1, layout1);
 
 
-        //Create bubble chart in correct location
-
-
-
-        
-
+    //Create bubble chart in correct location
     trace2 = {
         mode:"markers",
         x: ybar_values,
@@ -160,7 +106,7 @@ function buildCharts(selection) {
 
     layout2 = {title: "Bubble Chart",
            xaxis:{title: "OTU ID"},
-           yaxis:{title: "Samples"},
+        // yaxis:{title: "Samples"},
            showlegend: false,
            height:600,
            width:1200,
@@ -169,21 +115,11 @@ function buildCharts(selection) {
 
     });
 
-
-    
-
-
-
-    
-
-
 };
 
 // Define function that will run on page load
 function init() {
-    // test buildMetadata with hardcode
-    // buildMetadata(947)
-    
+
     // Read json data
     d3.json("././samples.json").then((seldata) => {
 
