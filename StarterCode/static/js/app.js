@@ -1,10 +1,6 @@
 /* The following is an example on how you might structure your code.
 This is not the only way to complete this assignment.
 Feel free to disregard and create your own code 
-
-
-
-
 */
 
 // testing area
@@ -50,8 +46,6 @@ function buildMetadata(selection) {
         console.log("read json & get data in metadata function")
         console.log(samp_md[0])
 
-        //let bigCities = cities.filter(city => city.population > 3000000);
-        //console.log(bigCities);
         var filt_md = samp_md.filter(pick => pick.id == selection);
         console.log("filtered[0] position in metadata function")
         console.log(filt_md[0]);
@@ -113,6 +107,8 @@ function buildCharts(selection) {
     console.log("ybar_labels 10")
     console.log(ybar_label10)
 
+    var hovertext = filter_data.otu_labels;
+    var barhovertext = hovertext.slice(0,10).reverse();
     
     // var bar_id_label = filt_id.slice(0,10);
     // console.log(bar_id_label);
@@ -132,7 +128,7 @@ function buildCharts(selection) {
                 type:"bar",
                 x: xbar_value10,
                 y: ybar_label10,
-                text: ybar_label10,
+                text: barhovertext,
                 orientation: "h",
             };
     data1 = [trace1];
@@ -154,7 +150,7 @@ function buildCharts(selection) {
         mode:"markers",
         x: ybar_values,
         y: xbar_values,
-        // text: filt_id,
+        text: hovertext,
         marker: {
                 size: xbar_values,
                 color: ybar_values,
