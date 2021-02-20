@@ -48,7 +48,7 @@ function buildMetadata(selection) {
         // Parse and filter the data to get the sample's metadata
         var samp_md = data.metadata;
         console.log("read json & get data in metadata function")
-        console.log(samp_md)
+        console.log(samp_md[0])
 
         //let bigCities = cities.filter(city => city.population > 3000000);
         //console.log(bigCities);
@@ -60,9 +60,13 @@ function buildMetadata(selection) {
         var metadata = d3.select("#sample-metadata").html("");
 
         Object.entries(filt_md[0]).forEach(([key, value]) => {
-                metadata.append("p").text('${key}:${value}');
-                  
+                metadata.append("p").text(key +" : "+value);
+                //metadata.append("p").text('${key}:${value}');
         });
+        console.log("metadata fill")
+        console.log(metadata)
+        
+                  
     });
 };
 // 
