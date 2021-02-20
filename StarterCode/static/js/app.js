@@ -92,24 +92,26 @@ function buildCharts(selection) {
     
 
 
-    var ybar_values = filter_data.sample_values;
-    console.log(ybar_values);
-   
-    var ybar_value10 = ybar_values.slice(0,10).reverse()
-    console.log("ybar 10 values")
-    console.log(ybar_value10);
-
-    var xbar_values = filter_data.otu_ids;
+    var xbar_values = filter_data.sample_values;
     console.log(xbar_values);
+   
     var xbar_value10 = xbar_values.slice(0,10).reverse()
+    console.log("ybar 10 values")
+    console.log(xbar_value10);
+
+
+
+    var ybar_values = filter_data.otu_ids;
+    console.log(ybar_values);
+    var ybar_value10 = ybar_values.slice(0,10).reverse()
 
     
-    var xbar_label10 = [];
-    xbar_value10.forEach((suffix) =>{
-        xbar_label10.push("OTU " + suffix)
+    var ybar_label10 = [];
+    ybar_value10.forEach((suffix) =>{
+        ybar_label10.push("OTU " + suffix + " ")
     });
-    console.log("xbar_labels 10")
-    console.log(xbar_label10)
+    console.log("ybar_labels 10")
+    console.log(ybar_label10)
 
     
     // var bar_id_label = filt_id.slice(0,10);
@@ -128,9 +130,9 @@ function buildCharts(selection) {
         // Create bar chart in correct location
     trace1 = {
                 type:"bar",
-                x: ybar_value10,
-                y: xbar_label10,
-                text: xbar_label10,
+                x: xbar_value10,
+                y: ybar_label10,
+                text: ybar_label10,
                 orientation: "h",
             };
     data1 = [trace1];
@@ -148,23 +150,26 @@ function buildCharts(selection) {
 
         
 
-    // trace2 = {
-    //     mode:"markers",
-    //     x: filt_valu,
-    //     y: bar_id_label,
-    //     text: filt_id,
-    //     marker: {
-    //             size: bar_id_label,
-    //             color: filt_id,
-    //     },
-    //     };
-    // data2 = [trace2];
+    trace2 = {
+        mode:"markers",
+        x: ybar_values,
+        y: xbar_values,
+        // text: filt_id,
+        marker: {
+                size: xbar_values,
+                color: ybar_values,
+        },
+        };
+    data2 = [trace2];
 
-    // layout2 = {title: "Bubble Chart",
-    //        xaxis:{title: "IDs"},
-    //        yaxis:{title: "Samples"}
-    //     };
-    // Plotly.newPlot("bubble", data2, layout2);
+    layout2 = {title: "Bubble Chart",
+           xaxis:{title: "OTU ID"},
+           yaxis:{title: "Samples"},
+           showlegend: false,
+           height:600,
+           width:1200,
+        };
+    Plotly.newPlot("bubble", data2, layout2);
 
     });
 
