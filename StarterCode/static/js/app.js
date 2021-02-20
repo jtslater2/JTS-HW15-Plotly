@@ -89,25 +89,27 @@ function buildCharts(selection) {
     console.log("filter_data in chart func");
     console.log(filter_data);
 
-
-
-    var xbar_values = filter_data.sample_values;
-    console.log(xbar_values);
-   
-    var xbar_value10 = xbar_values.slice(0,10)
-    console.log("xbar 10 values")
-    console.log(xbar_value10);
-
-    var ybar_values = filter_data.otu_ids;
-    console.log(ybar_values);
-    var ybar_value10 = ybar_values.slice(0,10)
     
-    var ybar_label10 = [];
-    ybar_values.forEach((suffix) =>{
-        ybar_label10.push("OTU " + suffix)
+
+
+    var ybar_values = filter_data.sample_values;
+    console.log(ybar_values);
+   
+    var ybar_value10 = ybar_values.slice(0,10).reverse()
+    console.log("ybar 10 values")
+    console.log(ybar_value10);
+
+    var xbar_values = filter_data.otu_ids;
+    console.log(xbar_values);
+    var xbar_value10 = xbar_values.slice(0,10).reverse()
+
+    
+    var xbar_label10 = [];
+    xbar_value10.forEach((suffix) =>{
+        xbar_label10.push("OTU " + suffix)
     });
-    console.log("ybar_labels 10")
-    console.log(ybar_label10)
+    console.log("xbar_labels 10")
+    console.log(xbar_label10)
 
     
     // var bar_id_label = filt_id.slice(0,10);
@@ -126,9 +128,9 @@ function buildCharts(selection) {
         // Create bar chart in correct location
     trace1 = {
                 type:"bar",
-                x: xbar_value10,
-                y: ybar_value10,
-                text: ybar_label10,
+                x: ybar_value10,
+                y: xbar_label10,
+                text: xbar_label10,
                 orientation: "h",
             };
     data1 = [trace1];
